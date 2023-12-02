@@ -5,6 +5,14 @@
   </head>
   <body>
     <a-scene>
+      <a-assets>
+      <img id="sky" src="Assets/img/jose-g-ortega-castro-PYpkPbBCNFw-unsplash.jpg">
+      <audio id="backgroundsound" src="Assets/Music/Bi Luo - Herons.mp3"></audio>
+    </a-assets>
+    <a-sky src="#sky"></a-sky>
+
+    <a-sound src="#backgroundsound" autoplay="true"loop="true" volume="0.4"></a-sound>
+
       <a-camera>
         <a-cursor position="0 0 -0.1" scale="0.1 0.1 0.1"></a-cursor>
       </a-camera>
