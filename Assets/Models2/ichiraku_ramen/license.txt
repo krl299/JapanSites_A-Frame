@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ichiraku Ramen
+* source:	https://sketchfab.com/3d-models/ichiraku-ramen-9803136be5384cd38acfd3947dc6d2ad
+* author:	Raja Arnold (https://sketchfab.com/rajarnold)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ichiraku Ramen" (https://sketchfab.com/3d-models/ichiraku-ramen-9803136be5384cd38acfd3947dc6d2ad) by Raja Arnold (https://sketchfab.com/rajarnold) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
