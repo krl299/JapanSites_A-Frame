@@ -11,7 +11,9 @@
 <body>
     <a-scene>
         <a-assets>
+            <!--Skybox-->
             <img id="sky" src="Assets/img/meadow_2_4k.jpeg">
+            <!--Models-->
             <a-asset-item id="Ichiraku" src="Assets/Models2/ichiraku_ramen/scene.gltf"></a-asset-item>
             <a-asset-item id="Humandroid" src="Assets/Models2/h.a.i_-_human_android_integration/scene.gltf"></a-asset-item>
             <a-asset-item id="popcat" src="Assets/Models2/pop_cat/scene.gltf"></a-asset-item>
@@ -19,15 +21,23 @@
             <a-asset-item id="food2" src="Assets/Models2/japanese_food_pack_sushi_-_free/scene.gltf"></a-asset-item>
             <a-asset-item id="food3" src="Assets/Models2/japanese_ramen/scene.gltf"></a-asset-item>
             <a-asset-item id="food4" src="Assets/Models2/stylized_sushi/scene.gltf"></a-asset-item>
-            <!--Texturas-->
+            <!--Textures-->
             <img id="texture" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_basecolor.jpg">
             <img id="texture2" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_normal.jpg">
+            <!--Video-->
+            <video id="Japanesefood" preload loop="true" src="Assets/Vídeo/How to_ Dining Out in Japan _ Travel Tips _ japan-guide.com.mp4"></video>
+            <!--Sound-->
+            <audio id="backgroundsound" src="Assets/Music/Lotus.mp3"></audio>
+
 
 
         </a-assets>
-        <!--skybox-->
+        <!--Skybox-->
         <a-sky src="#sky"></a-sky>
-        <!--Modelos-->
+
+        <a-sound src="#backgroundsound" autoplay="true"loop="true" volume="0.4"></a-sound>
+
+        <!--Models-->
         <a-entity gltf-model = "#Ichiraku" position="-0.5 0 -1.5"></a-entity>
         <a-entity gltf-model = "#Humandroid" position="0.2 0.2 -1.8" scale="0.9 0.9 0.9" animation-mixer></a-entity>
         <a-entity gltf-model = "#popcat" animation-mixer position="-1. 1.93 -2.5" scale="0.02 0.02 0.02"></a-entity>
@@ -37,9 +47,12 @@
         <a-entity gltf-model = "#food3" position="-2 0.9 -0.7" scale="0.2 0.2 0.2" rotation="0 0 0"></a-entity>
         <a-entity gltf-model = "#food3" position="2 0.9 -0.7" scale="0.2 0.2 0.2" rotation="0 120 0"></a-entity>
         <a-entity gltf-model = "#food4" position="-0.1 1 -0.6" scale="0.001 0.001 0.001" rotation="0 20 0"></a-entity>
+        <!--Video-->
+        <a-video src="#Japanesefood" video-handler visible="true" position="-1.5 2 -2" rotation="0 30 0"
+        ></a-video>
 
-        <!--Enlace-->
-        <a-sphere mylink="href:Inicio.html"position="-2 2 0" scale="0.2 0.2 0.2" color="#BC8C61" src="#texture"normal-map="#texture2" 
+        <!--Link-->
+        <a-sphere mylink="href:Index.html"position="-2 2 0" scale="0.2 0.2 0.2" color="#BC8C61" src="#texture"normal-map="#texture2" 
         animation = "property: rotation; to: 0 360 0; dur: 2000; loop: true;"></a-sphere>
         <!--Cursor-->
         <a-camera >
@@ -59,5 +72,21 @@
         
 
     </a-scene>
+    <script>
+        /*Video handler*/
+        AFRAME.registerComponent('video-handler',{
+    init: function(){
+        let el = this.el;
+        let video = document.querySelector("#Japanesefood");
+        video.pause();
+        el.addEventListener('mouseenter',function(){
+            video.play();
+        });
+        el.addEventListener('mouseleave',function(){
+           video.pause();
+        });
+    }
+  });
+    </script>
 </body>
 </html>
