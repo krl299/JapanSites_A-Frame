@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Sacred Grounds</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>
+</head>
+<body>
+    <a-scene >
+        <a-assets>
+            <img id="sky" src="Assets/img/autumn_hockey_4k.jpeg">
+            <!-- Modelos -->
+            <a-asset-item id="sushi" src="Assets/models/sushi__ramen_booth/ramentry.gltf"></a-asset-item>
+            <a-asset-item id="cat" src="Assets/models/cat_murdered_soul_suspect/scene.gltf"></a-asset-item>
+            <a-asset-item id="lantern" src="Assets/models/toro__dai_doro_-_japanese_lantern/scene.gltf"></a-asset-item>
+            <a-asset-item id="tori" src="Assets/models/torii_-_japanese_gate/scene.gltf"></a-asset-item>
+            <a-asset-item id="templo" src="Assets/models/japanese_shinto_shrine/scene.gltf"></a-asset-item>
+            <a-asset-item id="castle" src="Assets/models/japanese_castle/scene.gltf"></a-asset-item>
+            <a-asset-item id="kimonocat" src="Assets/models/lowpoly_kimono_cat/scene.gltf"></a-asset-item>
+            <a-asset-item id="npcat" src="Assets/models/lowpoly_cat_npc/scene.gltf"></a-asset-item>
+            <a-asset-item id="well" src="Assets/models/stylized_japanese_well/scene.gltf"></a-asset-item>
+            <a-asset-item id="samurai" src="Assets/models/cyber_samurai/scene.gltf"></a-asset-item>
+            <!-- Texturas-->
+            <img id="texture" src="Assets/img/Gravel_001_SD-20231122T092849Z-001/Gravel_001_SD/Gravel_001_BaseColor.jpg">
+            <img id="texture2" src="Assets/img/Stone_Floor_004_SD-20231122T111014Z-001/Stone_Floor_004_SD/Substance_Graph_Normal.jpg">
+            <img id="texture3" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_basecolor.jpg">
+            <img id="texture4" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_normal.jpg">
+            
+        </a-assets>
+        <a-sky src="#sky"></a-sky>
+        <!-- Modelos -->
+        <a-entity gltf-model = "#sushi" scale = "0.4 0.4 0.4" position = "11 -0.65 5" rotation="" animation-mixer></a-entity>
+        <a-entity gltf-model = "#cat" scale =" 0.015 0.015 0.015" position="9.3 0.925 5.8" rotation="0 120 0" animation-mixer></a-entity>
+        <a-entity gltf-model = "#tori" scale = "40 40 40" position = "0 0 -8" rotation="0 180 0"></a-entity>
+        <a-entity gltf-model = "#lantern" scale = "20 20 20" position = "-5 0 0"></a-entity>
+        <a-entity gltf-model = "#lantern" scale = "20 20 20" position = "5 0 0"></a-entity>
+        <a-entity gltf-model = "#npcat" rotation="0 220 0" position = "13 0 4"></a-entity>
+        <a-entity gltf-model = "#templo" scale ="20 20 20" position = "-0.1 0 -12"></a-entity>
+        <a-entity gltf-model = "#castle" scale="0.006 0.006 0.006" position="0 1.2 10" rotation="0 90 0"></a-entity>
+        <a-entity gltf-model ="#kimonocat" position="0 0 -7" scale="200 200 200" ></a-entity>
+        <a-entity gltf-model ="#well" position="-6 0 -5" scale="0.015 0.015 0.015" rotation="0 45 0"></a-entity>
+        <a-entity gltf-model = "#samurai" position="0 2.2 5" rotation ="0 180 0"></a-entity>
+
+        <!-- Terrenos -->
+        <a-plane scale="10 10 10" rotation="-90 0 0"  src="#texture" normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="0 0 -10"  src="#texture" normal-map="#texture2" ></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="0 0 10"  src="#texture"normal-map="#texture2" ></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="-10 0 0"  src="#texture"normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="10 0 0"  src="#texture"normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="10 0 10"  src="#texture"normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="-10 0 -10"  src="#texture"normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="10 0 -10"  src="#texture"normal-map="#texture2"></a-plane>
+        <a-plane scale="10 10 10" rotation="-90 0 0" position="-10 0 10"  src="#texture"normal-map="#texture2"></a-plane>
+
+        <!-- Enlace -->
+        <a-sphere mylink="href:Inicio.html"position="0 2 -7" scale="0.2 0.2 0.2" src="#texture3"normal-map="#texture4" 
+        animation = "property: rotation; to: 0 360 0; dur: 2000; loop: true;"></a-sphere>
+
+        <a-camera position="0 1.6 -1">
+            <a-cursor  fuse="true" 
+                       fuse-timeout="2000" 
+                       animation__fusing="property: scale; 
+                                           startEvents: fusing; 
+                                           easing: easeInCubic; 
+                                           dur: 1000; 
+                                           from: 1.5 1.5 1.5; 
+                                           to: 0.1 0.1 0.1; 
+                                           dir: alternate;
+                                           loop: 2">
+           </a-cursor>     
+          </a-camera>
+    </a-scene>
+        
+</body>
+</html>

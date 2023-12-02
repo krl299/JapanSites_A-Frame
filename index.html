@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-camera>
+        <a-cursor position="0 0 -0.1" scale="0.1 0.1 0.1"></a-cursor>
+      </a-camera>
+      <a-entity id="menu" position="0 2 -2" style="pointer-events: all;">
+        <a-plane class="menu-item" id="start" position="0 0 0" width="1" height="0.3"
+        depth="0.3" color="green" text="align: center; width: 3; value: Start">
+        </a-plane>
+      </a-entity>
+      <a-entity id="startmenu" position="0 1.5 -2" visible="false" style="pointer-events: none;">
+        <a-plane class="menu-item" id="Ichiraku" position="0 0.8 0" width="1" height="0.3"
+        depth="0.3" color="green" text="align: center; width: 3; value: Ichiraku">
+        </a-plane>
+        <a-plane class="menu-item" id="Japanese" position="0 0.5 0" width="1" height="0.3"
+        depth="0.3" color="blue" text="align: center; width: 3; value: Japanese">
+        </a-plane>
+        <a-plane class="menu-item" id="back" position="0 0.2 0" width="1" height="0.3"
+        depth="0.3" color="yellow" text="align: center; width: 3; value: Back">
+      </a-entity>
+    </a-scene>
+
+    <script>
+      var menuItems = document.querySelectorAll('.menu-item');
+    
+      menuItems.forEach(function(item) {
+        item.addEventListener('mouseenter', function () {
+          this.setAttribute('scale', '1.1 1.1 1.1');
+          var originalPosition = this.getAttribute('position')
+          this.setAttribute('position', {x: originalPosition.x, y: originalPosition.y,
+            z: originalPosition.z + 0.001});
+        });
+    
+        item.addEventListener('mouseleave', function () {
+          this.setAttribute('scale', '1 1 1');
+          var originalPosition = this.getAttribute('position');
+          this.setAttribute('position', originalPosition);
+        });
+        item.addEventListener('click', function () {
+          setTimeout(function() {
+            console.log('VR: ' + item.id + ' selected');
+            if (item.id == 'start') {
+              document.getElementById('menu').setAttribute('visible', 'false');
+              document.getElementById('menu').setAttribute('style', 'pointer-events: none;');
+              document.getElementById('menu').setAttribute('position', '0 2 -2.1');
+              document.getElementById('startmenu').setAttribute('visible', 'true');
+              document.getElementById('startmenu').setAttribute('style', 'pointer-events: all;');
+              document.getElementById('startmenu').setAttribute('position', '0 1.5 -2');
+            } else if (item.id == 'back') {
+              document.getElementById('menu').setAttribute('visible', 'true');
+              document.getElementById('menu').setAttribute('style', 'pointer-events: all;');
+              document.getElementById('menu').setAttribute('position', '0 2 -2');
+              document.getElementById('startmenu').setAttribute('visible', 'false');
+              document.getElementById('startmenu').setAttribute('style', 'pointer-events: none;');
+              document.getElementById('startmenu').setAttribute('position', '0 1.5 -2.1');
+            } else if (item.id == 'Ichiraku') {
+              window.location.href = item.id + '.html';
+            } else if (item.id == 'Japanese') {
+              window.location.href = item.id + '.html';
+            }
+          }, 500);
+        });
+      });
+    </script>
+  </body>
+</html>

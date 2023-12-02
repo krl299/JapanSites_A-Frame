@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ichiraku Ramen</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+
+</head>
+<body>
+    <a-scene >
+        <a-assets>
+            <img id="sky" src="Assets/img/meadow_2_4k.jpeg">
+            <a-asset-item id="Ichiraku" src="Assets/Models2/ichiraku_ramen/scene.gltf"></a-asset-item>
+            <a-asset-item id="Humandroid" src="Assets/Models2/h.a.i_-_human_android_integration/scene.gltf"></a-asset-item>
+            <a-asset-item id="popcat" src="Assets/Models2/pop_cat/scene.gltf"></a-asset-item>
+            <a-asset-item id="food" src="Assets/Models2/noodle_bowl_-_3ddecember_day9/scene.gltf"></a-asset-item>
+            <a-asset-item id="food2" src="Assets/Models2/japanese_food_pack_sushi_-_free/scene.gltf"></a-asset-item>
+            <a-asset-item id="food3" src="Assets/Models2/japanese_ramen/scene.gltf"></a-asset-item>
+            <a-asset-item id="food4" src="Assets/Models2/stylized_sushi/scene.gltf"></a-asset-item>
+            <!--Texturas-->
+            <img id="texture" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_basecolor.jpg">
+            <img id="texture2" src="Assets/img/Stylized_Crystal_002_SD-20231201T194710Z-001/Stylized_Crystal_002_SD/Stylized_Crystal_002_normal.jpg">
+
+
+        </a-assets>
+        <!--skybox-->
+        <a-sky src="#sky"></a-sky>
+        <!--Modelos-->
+        <a-entity gltf-model = "#Ichiraku" position="-0.5 0 -1.5"></a-entity>
+        <a-entity gltf-model = "#Humandroid" position="0.2 0.2 -1.8" scale="0.9 0.9 0.9" animation-mixer></a-entity>
+        <a-entity gltf-model = "#popcat" animation-mixer position="-1. 1.93 -2.5" scale="0.02 0.02 0.02"></a-entity>
+        <a-entity gltf-model = "#food" scale="0.06 0.06 0.06" position="1 1 -0.7"></a-entity>
+        <a-entity gltf-model = "#food" scale="0.06 0.06 0.06" position="-1 1 -0.7"></a-entity>
+        <a-entity gltf-model = "#food2" position="0.5 1 -0.7" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model = "#food3" position="-2 0.9 -0.7" scale="0.2 0.2 0.2" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model = "#food3" position="2 0.9 -0.7" scale="0.2 0.2 0.2" rotation="0 120 0"></a-entity>
+        <a-entity gltf-model = "#food4" position="-0.1 1 -0.6" scale="0.001 0.001 0.001" rotation="0 20 0"></a-entity>
+
+        <!--Enlace-->
+        <a-sphere mylink="href:Inicio.html"position="-2 2 0" scale="0.2 0.2 0.2" color="#BC8C61" src="#texture"normal-map="#texture2" 
+        animation = "property: rotation; to: 0 360 0; dur: 2000; loop: true;"></a-sphere>
+      
+        <!--Cursor-->
+        <a-camera >
+            <a-cursor  fuse="true" 
+                       fuse-timeout="2000" 
+                       animation__fusing="property: scale; 
+                                           startEvents: fusing; 
+                                           easing: easeInCubic; 
+                                           dur: 1000; 
+                                           from: 1.5 1.5 1.5; 
+                                           to: 0.1 0.1 0.1; 
+                                           dir: alternate;
+                                           loop: 2">
+           </a-cursor>     
+          </a-camera>
+
+        
+
+    </a-scene>
+</body>
+</html>
