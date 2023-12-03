@@ -52,7 +52,8 @@
         ></a-video>
 
         <!--Link-->
-        <a-sphere mylink="href:Index.html"position="-2 2 0" scale="0.2 0.2 0.2" color="#BC8C61" src="#texture"normal-map="#texture2" 
+        <a-sphere   id="back" position="-2 2 0"
+                    scale="0.2 0.2 0.2" color="#BC8C61" src="#texture"normal-map="#texture2" 
         animation = "property: rotation; to: 0 360 0; dur: 2000; loop: true;"></a-sphere>
         <!--Cursor-->
         <a-camera >
@@ -62,15 +63,13 @@
                                            startEvents: fusing; 
                                            easing: easeInCubic; 
                                            dur: 1000; 
-                                           from: 1.5 1.5 1.5; 
+                                           from: 0.2 0.2 0.2; 
                                            to: 0.1 0.1 0.1; 
                                            dir: alternate;
-                                           loop: 2">
+                                           loop: 2"
+                        position="0 0 -0.1">
            </a-cursor>     
-          </a-camera>
-
-        
-
+        </a-camera>
     </a-scene>
     <script>
         /*Video handler*/
@@ -84,6 +83,9 @@
         });
         el.addEventListener('mouseleave',function(){
            video.pause();
+        });
+        document.querySelector("#back").addEventListener('click',function(){
+            window.location.href = "index.html";
         });
     }
   });

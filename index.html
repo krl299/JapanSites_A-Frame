@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JapaneseSites</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   </head>
   <body>
@@ -14,7 +17,18 @@
     <a-sound src="#backgroundsound" autoplay="true"loop="true" volume="0.4"></a-sound>
 
       <a-camera>
-        <a-cursor position="0 0 -0.1" scale="0.1 0.1 0.1"></a-cursor>
+        <a-cursor  fuse="true" 
+                       fuse-timeout="2000" 
+                       animation__fusing="property: scale; 
+                                           startEvents: fusing; 
+                                           easing: easeInCubic; 
+                                           dur: 1000; 
+                                           from: 0.2 0.2 0.2; 
+                                           to: 0.1 0.1 0.1; 
+                                           dir: alternate;
+                                           loop: 2"
+                        position="0 0 -0.1">
+        </a-cursor> 
       </a-camera>
       <a-entity id="menu" position="0 2 -2" style="pointer-events: all;">
         <a-plane class="menu-item" id="start" position="0 0 0" width="1" height="0.3"
