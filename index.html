@@ -4,52 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JapaneseSites</title>
+    <!-- Include A-Frame library -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    
   </head>
   <body>
-    <a-scene>
+    <!-- Start of A-Frame scene -->
+    <a-scene id="index">
+      <!-- Assets for the scene (images, audio, etc.) -->
       <a-assets>
-      <img id="sky" src="Assets/img/jose-g-ortega-castro-PYpkPbBCNFw-unsplash.jpg">
-      <audio id="backgroundsound" src="Assets/Music/Bi Luo - Herons.mp3"></audio>
-    </a-assets>
-    <a-sky src="#sky"></a-sky>
+        <img id="sky" src="Assets/img/jose-g-ortega-castro-PYpkPbBCNFw-unsplash.jpg">
+        <audio id="backgroundsound" src="Assets/Music/Bi Luo - Herons.mp3"></audio>
+      </a-assets>
+      
+      <!-- Sky entity using the image from assets -->
+      <a-sky src="#sky"></a-sky>
 
-    <a-sound src="#backgroundsound" autoplay="true"loop="true" volume="0.4"></a-sound>
+      <!-- Background sound entity using the audio from assets -->
+      <a-sound src="#backgroundsound" autoplay="true" loop="true" volume="0.4"></a-sound>
 
+      <!-- Camera entity with a cursor -->
       <a-camera>
         <a-cursor  fuse="true" 
-                       fuse-timeout="2000" 
-                       animation__fusing="property: scale; 
-                                           startEvents: fusing; 
-                                           easing: easeInCubic; 
-                                           dur: 1000; 
-                                           from: 0.2 0.2 0.2; 
-                                           to: 0.1 0.1 0.1; 
-                                           dir: alternate;
-                                           loop: 2"
-                        position="0 0 -0.1">
+                   fuse-timeout="2000" 
+                   animation__fusing="property: scale; 
+                                       startEvents: fusing; 
+                                       easing: easeInCubic; 
+                                       dur: 1000; 
+                                       from: 0.4 0.4 0.4; 
+                                       to: 0.1 0.1 0.1; 
+                                       dir: alternate;
+                                       loop: 2"
+                    position="0 0 -0.5">
         </a-cursor> 
       </a-camera>
+
+      <!-- Menu entity with two options: Start and ViewSource -->
       <a-entity id="menu" position="0 2 -2" style="pointer-events: all;">
         <a-plane class="menu-item" id="start" position="0 0 0" width="1" height="0.3"
-        depth="0.3" color="green" text="align: center; width: 3; value: Start">
+        depth="0.3" color="green" text="align: center; width: 3; color: black;value: Start">
         </a-plane>
         <a-plane class="menu-item" id="viewsource" position="0 -1 0" width="1" height="0.3"
-        depth="0.3" color="blue" text="align: center; width: 3; value: ViewSource">
+        depth="0.3" color="blue" text="align: center; width: 3; color: black;value: ViewSource">
         </a-plane>
       </a-entity>
+
+      <!-- Start menu entity with three options: Ichiraku, Japanese and back -->
       <a-entity id="startmenu" position="0 1.5 -2" visible="false" style="pointer-events: none;">
         <a-plane class="menu-item" id="Ichiraku" position="0 0.8 0" width="1" height="0.3"
-        depth="0.3" color="green" text="align: center; width: 3; value: Ichiraku">
+        depth="0.3" color="green" text="align: center; width: 3; color: black;value: Ichiraku">
         </a-plane>
         <a-plane class="menu-item" id="Japanese" position="0 0.5 0" width="1" height="0.3"
-        depth="0.3" color="blue" text="align: center; width: 3; value: Japanese">
+        depth="0.3" color="yellow" text="align: center; width: 3; color: black;value: Japanese">
+        </a-plane>
+        <a-plane class="menu-item" id="teleport" position="0 -0.1 0" width="1" height="0.3"
+        depth="0.3" color="yellow" text="align: center; width: 3; color: black;value: teleport">
         </a-plane>
         <a-plane class="menu-item" id="back" position="0 0.2 0" width="1" height="0.3"
-        depth="0.3" color="yellow" text="align: center; width: 3; value: Back">
+        depth="0.3" color="red" text="align: center; width: 3; color: black;value: Back">
+        </a-plane>
       </a-entity>
     </a-scene>
-
+    
     <script>
       var menuItems = document.querySelectorAll('.menu-item');
     
@@ -66,6 +82,7 @@
           var originalPosition = this.getAttribute('position');
           this.setAttribute('position', originalPosition);
         });
+
         item.addEventListener('click', function () {
           setTimeout(function() {
             console.log('VR: ' + item.id + ' selected');
@@ -78,6 +95,12 @@
               document.getElementById('startmenu').setAttribute('position', '0 1.5 -2');
             } else if (item.id == 'viewsource') {
               window.location.href = 'https://github.com/krl299/JapanSites_A-Frame';
+            } else if (item.id == 'Ichiraku') {
+              window.location.href = 'Ichiraku.html';
+            } else if (item.id == 'Japanese') {
+              window.location.href = 'Japanese.html';
+            } else if (item.id == 'teleport') {
+              window.location.href = 'teleport.html';
             } else if (item.id == 'back') {
               document.getElementById('menu').setAttribute('visible', 'true');
               document.getElementById('menu').setAttribute('style', 'pointer-events: all;');
@@ -85,10 +108,6 @@
               document.getElementById('startmenu').setAttribute('visible', 'false');
               document.getElementById('startmenu').setAttribute('style', 'pointer-events: none;');
               document.getElementById('startmenu').setAttribute('position', '0 1.5 -2.1');
-            } else if (item.id == 'Ichiraku') {
-              window.location.href = item.id + '.html';
-            } else if (item.id == 'Japanese') {
-              window.location.href = item.id + '.html';
             }
           }, 500);
         });
