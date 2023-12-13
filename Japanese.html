@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanese Sacred Grounds</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
     <script src="../../dist/aframe-cursor-teleport-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
   
@@ -73,7 +74,7 @@
         animation = "property: rotation; to: 0 360 0; dur: 2000; loop: true;"></a-sphere>
 
         <!-- player -->
-        <a-entity id="cameraRig" position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
+        <a-entity id="cameraRig" position="0 0 -3" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
             <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true">
             </a-entity>
             <a-entity
